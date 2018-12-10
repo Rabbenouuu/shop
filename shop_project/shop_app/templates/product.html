@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<p>{{product.price}}</p>
+	<p>{{product.name}}</p>
+	<img src="http://{{request.get_host}}/{{product.image}}">
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>Profile</title>
+</head>
+<body>
+
+	{%for client in clients%}
+
+	<h3>Nom: {{client.first_name}}</h3>
+	<h3>Prenom: {{client.last_name}}</h3>
+	<h3>Email: {{client.email}}</h3>
+	<p>Password: {{client.password}}</p>
+	<a href="{% url 'shop_app:client' client.id %}">Click ici gros ! </a>
+	<hr>
+	{%endfor%}
+</body>
+</html>
