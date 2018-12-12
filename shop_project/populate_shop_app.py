@@ -6,14 +6,20 @@ django.setup()
 
 import random
 from faker import Faker
-from shop_app.models import Client, Product
+from shop_app.models import Client, Product, Maillot
 
 fakegen = Faker()
 
 def generate_brand():
-	brands = ['Nike','Adidas','Rebook','Jordan','Balanciaga','Timberland','School','Tatan','Asics','Geox']
+	styles = ['Nike','Adidas','Rebook','Jordan','Balanciaga','Timberland','School','Tatan','Asics','Geox']
 	index = random.randint(0,9)
-	return brands[index]
+	return styles[index]
+
+def generate_maillot():
+	for maillot in range(50):
+		price = random.randint(30, 150)
+		style = generate_brand()
+		maillot = Maillot.objects.get_or_create(name=style,price=price,description=fakegen.text())
 
 def generate_client():
 	for customer in range(1000):
@@ -30,7 +36,7 @@ def generate_product():
 		print(product)
 
 def populate():
-	generate_product()
+	generate_maillot()
 
 if __name__ == '__main__': 
 	print('news_client script...') 
