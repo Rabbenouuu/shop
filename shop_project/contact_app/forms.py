@@ -13,7 +13,7 @@ class ContactForm(forms.ModelForm):
 			}),
 		'email':forms.EmailInput(attrs={
 			'id':'contact-email',
-			'placeholder':'Whrite a contact here ...',
+			'placeholder':'email',
 			'required':True
 			}),
 		'text':forms.Textarea(attrs={

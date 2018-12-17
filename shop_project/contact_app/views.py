@@ -9,10 +9,8 @@ def contact_form(request):
 		text = request.POST.get('text')
 		Contact.objects.get_or_create(subject=subject,email=email,text=text)[0]
 		return redirect('contact_succes/')
-	
-	contact_form = ContactForm()
 
-	return render(request,'contact.html',{'contact_form':contact_form})
+	return render(request,'contact.html',{'contact_form':ContactForm()})
 
 def contact_succes(request):
 	return render(request,'contact_succes.html')
