@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact App</title>
+</head>
+<body>
+	<h1>Ajoutez un Contact</h1>
+	<form action="" method="POST">
+		{{ contact_form.as_p }}
+		{% csrf_token %}
+	<input type="submit" name="submit" value="send comment">
+	</form>
+</body>
+</html>
