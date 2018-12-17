@@ -3,11 +3,69 @@
 
 <html>
 <head>
-	<title>Home Page</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<title>Produit</title>
 </head>
 <body>
-	<p>{{product.price}}</p>
+
+  <div class="container">
+     <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+          <i class="fas fa-box-open"></i> Addicted Shoes
+          </a>
+        <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+ <div class="container">
+    <div class="row">
+    <div class="col-sm-4">
 	<p>{{product.name}}</p>
-	<img src="http://{{request.get_host}}/{{product.image}}">
+	<p>$ {{product.price}}</p>
+	<img  class="img-thumbnail" src="http://{{request.get_host}}/{{product.image}}">
+
+     <div class="col-8 offset-sm-2">
+     <div class="card mt-5">
+	{% for comment in comments %}
+		<p class="text-primary">{{comment.username}}</p>
+		<p>{{comment.text}}</p>
+		<p>{{comment.date}}</p>
+		<br>
+{% endfor %}
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
