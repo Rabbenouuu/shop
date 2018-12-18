@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Add a new Response</title>
+</head>
+<body>
+
+	<h1>Response</h1>
+	<form method="POST">
+		{{ response_form.as_p }}
+		{% csrf_token %}
+	<input type="submit" name="submit" value="send Response">
+	</form>
+		
+
+</body>
+</html>
+

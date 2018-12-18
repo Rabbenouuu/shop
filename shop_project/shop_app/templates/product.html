@@ -20,52 +20,50 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
- <div class="container">
     <div class="row">
-    <div class="col-sm-4">
-	<p>{{product.name}}</p>
-	<p>$ {{product.price}}</p>
-	<img  class="img-thumbnail" src="http://{{request.get_host}}/{{product.image}}">
-
-     <div class="col-8 offset-sm-2">
-     <div class="card mt-5">
+    	<div class="card mt-5">
+    		<div class=".col-6 .col-md-4">
+			<img  class="img-thumbnail" src="http://{{request.get_host}}/{{product.image}}">
+    		<h1>Product Details</h1>
+			<p>Name: {{product.name}}</p>
+			<p>Price: $ {{product.price}}</p>
+	</div>
+	</div>
+	</div>
+	<div class="row">
+    	<div class="card mt-5">
+    	<div class=".col-6 .col-md-4">
 	{% for comment in comments %}
 		<p class="text-primary">{{comment.username}}</p>
 		<p>{{comment.text}}</p>
 		<p>{{comment.date}}</p>
 		<br>
-{% endfor %}
+	{% endfor %}
 	</div>
 	</div>
-</div>
-</div>
-</div>
+	</div>
+
+
+	<div class="row">
+    <div class="card mt-5">
+    <div class=".col-6 .col-md-4">
+    <h1>Questions et réponses de clients</h1>
+	{% for question in questions %}
+		<h2>Question ? :</h2>
+		<p>Username: {{question.question.username}}</p>
+		<p>Title: {{question.question.title}}</p>
+		<p>Question: {{question.question.text}}</p>
+		<hr>
+	<h3>Responses:</h3>
+	{% for response in question.responses %}
+	<li>{{response.username}}: {{response.text}}</li>
+	{% endfor %}
+	<a href="{% url 'shop_app:response_form' question.question.id %}"> Proposer une reponse  :</a>
+	    <hr>
+	{% endfor %}
+	<br>
+	</div>
+	</div>
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
